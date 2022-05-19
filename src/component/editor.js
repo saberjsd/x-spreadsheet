@@ -7,7 +7,7 @@ import { cssPrefix } from '../config';
 
 function resetTextareaSize() {
   const { inputText } = this;
-  if (!/^\s*$/.test(inputText)) {
+  if (!/^\s*$/.test(String(inputText))) {
     const {
       textlineEl, textEl, areaOffset,
     } = this;
