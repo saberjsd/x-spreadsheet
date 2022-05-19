@@ -56,10 +56,10 @@ class Spreadsheet {
     return d;
   }
 
-  deleteSheet() {
+  deleteSheet(deletIndex) {
     if (this.bottombar === null) return;
 
-    const [oldIndex, nindex] = this.bottombar.deleteItem();
+    const [oldIndex, nindex] = this.bottombar.deleteItem(deletIndex);
     if (oldIndex >= 0) {
       this.datas.splice(oldIndex, 1);
       if (nindex >= 0) this.sheet.resetData(this.datas[nindex]);

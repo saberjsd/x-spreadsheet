@@ -152,10 +152,16 @@ export default class Bottombar {
     this.moreEl.reset(this.dataNames);
   }
 
-  deleteItem() {
-    const { activeEl, deleteEl } = this;
+  deleteItem(deletIndex) {
+    let { activeEl, deleteEl } = this;
     if (this.items.length > 1) {
-      const index = this.items.findIndex(it => it === deleteEl);
+      let index;
+      if(deletIndex >= 0 && deletIndex < this.items.length) {
+        index = deletIndex;
+        deleteEl = this.items[deletIndex];
+      } else {
+        index = this.items.findIndex(it => it === deleteEl);
+      }
       this.items.splice(index, 1);
       this.dataNames.splice(index, 1);
       this.menuEl.removeChild(deleteEl.el);
